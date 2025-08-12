@@ -1,10 +1,7 @@
 describe('Seu Barriga - Testes de Contas', () => {
   
   beforeEach(() => {
-    beforeEach(() => {
-  cy.criarELogarUsuario();
-});
-
+      cy.criarELogarUsuario();
   })
 
   it('CT001 - Teste Logout', () => {

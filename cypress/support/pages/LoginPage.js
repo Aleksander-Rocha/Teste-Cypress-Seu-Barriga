@@ -25,55 +25,6 @@ class LoginPage {
     return cy.get('.alert, .error, .success, .message').first() 
   }
 
-  // Ações
-  visit() {
-    cy.visit('/login')
-    return this
-  }
-
-  preencherEmail(email) {
-    this.emailInput.clear().type(email)
-    return this
-  }
-
-  preencherSenha(senha) {
-    this.passwordInput.clear().type(senha)
-    return this
-  }
-
-  clicarEntrar() {
-    this.loginButton.click()
-    return this
-  }
-
-  clicarNovoUsuario() {
-    this.novoUsuarioLink.click()
-    return this
-  }
-
-  clicarHome() {
-    this.homeLink.click()
-    return this
-  }
-
-  // Método combinado para fazer login
-  fazerLogin(email, senha) {
-    this.preencherEmail(email)
-    this.preencherSenha(senha)
-    this.clicarEntrar()
-    return this
-  }
-
-  // Verificações
-  verificarPaginaLogin() {
-    cy.url().should('include', '/login')
-    cy.title().should('contain', 'Log in')
-    this.emailInput.should('be.visible')
-    this.passwordInput.should('be.visible')
-    this.loginButton.should('be.visible')
-    return this
-  }
-
   verificarRedirecionamento() {
     cy.url().should('not.include', '/login')
     return this

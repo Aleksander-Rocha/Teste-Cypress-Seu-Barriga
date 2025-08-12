@@ -1,25 +1,7 @@
 describe('Seu Barriga - Testes de Contas', () => {
   
   beforeEach(() => {
-    // Criar usuário único para cada teste
-    const timestamp = Date.now()
-    const usuario = {
-      nome: `Usuario ${timestamp}`,
-      email: `teste${timestamp}@teste.com`,
-      senha: '123456'
-    }
-
-    // Cadastrar usuário
-    cy.visit('https://seubarriga.wcaquino.me/cadastro')
-    cy.get('input[placeholder="Nome"]').type(usuario.nome)
-    cy.get('input[placeholder="Email"]').type(usuario.email)
-    cy.get('input[placeholder="Password"]').type(usuario.senha)
-    cy.get('input[type="submit"], button').contains('Cadastrar').click()
-
-    // Fazer login
-    cy.get('input[placeholder="Email"]').type(usuario.email)
-    cy.get('input[placeholder="Password"]').type(usuario.senha)
-    cy.get('button').contains('Entrar').click()
+      cy.criarELogarUsuario();
   })
 
   it('CT001 - Adicionar no mínimo 2 contas', () => {
